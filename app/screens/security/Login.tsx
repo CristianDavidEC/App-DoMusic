@@ -13,6 +13,7 @@ import {
 } from "react-native";
 
 import md5 from "md5";
+import { ServiceKeys } from "../../../keys";
 
 const bgImg = require("../../../assets/bg2.jpg");
 
@@ -24,7 +25,8 @@ export default class Login extends React.Component {
   state = {
     username: "",
     password: "",
-    url: "http://192.168.0.100:3000/login",
+    url:  `${ServiceKeys.URL}/login`,
+
   };
 
   async onLogin() {

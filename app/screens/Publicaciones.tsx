@@ -10,6 +10,7 @@ import {
     Dimensions,
     TouchableHighlight,
 } from "react-native";
+import { ServiceKeys } from "../../keys";
 
 //import SessionNavbar from "./security/Navbar";
 
@@ -21,7 +22,7 @@ export default class Publicaciones extends React.Component {
             loading: false,
             Publicaciones: [],
             url:
-                'http://192.168.0.100:3000/publicaciones',
+            `${ServiceKeys.URL}/publicaciones`,
         };
     }
 
@@ -50,7 +51,7 @@ export default class Publicaciones extends React.Component {
         if (this.state.loading) {
             return (
                 <View style={styles.dataViewLoading}>
-                    <Text>Cargando Publicaicones... Espera un momento.</Text>
+                    <Text>Cargando Publicaciones... Espera un momento.</Text>
                 </View>
             );
         } else {
@@ -72,7 +73,7 @@ export default class Publicaciones extends React.Component {
                                         source={{
                                             width: 200,
                                             height: 150,
-                                            uri: `http://192.168.0.100:3000/files/2/${item.idPublicacion}`,
+                                            uri: `${ServiceKeys.URL}/files/2/${item.idPublicacion}`,
                                         }}
                                     />
                                 </TouchableHighlight>

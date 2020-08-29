@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
+import {ServiceKeys} from '../../keys'
 import {
     StyleSheet,
     Text,
@@ -21,7 +22,7 @@ export default class Main extends React.Component {
             loading: false,
             Publicaciones: [],
             url:
-                'http://192.168.0.100:3000/publicaciones',
+                `${ServiceKeys.URL}/publicaciones`,
         };
     }
 
@@ -72,7 +73,7 @@ export default class Main extends React.Component {
                                         source={{
                                             width: 200,
                                             height: 150,
-                                            uri: `http://192.168.0.100:3000/files/2/${item.idPublicacion}`,
+                                            uri: `${ServiceKeys.URL}/files/2/${item.idPublicacion}`,
                                         }}
                                     />
                                 </TouchableHighlight>
