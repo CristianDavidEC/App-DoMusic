@@ -24,7 +24,7 @@ export default class Login extends React.Component {
   state = {
     username: "",
     password: "",
-    url: "http://192.168.1.66:3000/login",
+    url: "http://192.168.0.100:3000/login",
   };
 
   async onLogin() {
