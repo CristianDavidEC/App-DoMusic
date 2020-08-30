@@ -45,7 +45,7 @@ export default class Login extends React.Component {
       .then((data) => data.json())
       .then((data) => {
         AsyncStorage.setItem("session", JSON.stringify(data));
-        this.props.navigation.push("Home");
+        this.props.navigation.push("Main");
       })
       .catch((err) => {
         Alert.alert("App Message", "Invalid data.");
