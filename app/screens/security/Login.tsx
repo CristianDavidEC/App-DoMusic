@@ -23,15 +23,15 @@ export default class Login extends React.Component {
   }
 
   state = {
-    username: "",
-    password: "",
+    nombreUsuario: "",
+    contrasena: "",
     url:  `${ServiceKeys.URL}/login`,
 
   };
 
   async onLogin() {
-    const u = this.state.username;
-    const p = md5(this.state.password);
+    const u = this.state.nombreUsuario;
+    const p = md5(this.state.contrasena);
     fetch(this.state.url, {
       method: "POST",
       headers: {
@@ -39,19 +39,19 @@ export default class Login extends React.Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: u,
-        password: p,
+        nombreUsuario: u,
+        contrasena: p,
       }),
     })
       .then((data) => data.json())
       .then((data) => {
         AsyncStorage.setItem("session", JSON.stringify(data));
-        this.props.navigation.push("Home");
+        this.props.navigation.push("Main");
       })
       .catch((err) => {
         Alert.alert("App Message", "Invalid data.");
       });
-    //Alert.alert("Credentials", `username: ${username} - password: ${password}`);
+    //Alert.alert("Credentials", `nombreUsuario: ${u} - contrasena: ${p}`);
   }
 
   render() {
@@ -62,17 +62,17 @@ export default class Login extends React.Component {
           <Text style={styles.titleText}>Hi, Welcome To</Text>
           <Text style={styles.titleText}>My App</Text>
           <TextInput
-            value={this.state.username}
+            value={this.state.nombreUsuario}
             keyboardType="default"
-            onChangeText={(username) => this.setState({ username })}
-            placeholder="username"
+            onChangeText={(nombreUsuario) => this.setState({nombreUsuario})}
+            placeholder="nombreUsuario"
             placeholderTextColor="gray"
             style={styles.input}
           />
           <TextInput
-            value={this.state.password}
-            onChangeText={(password) => this.setState({ password })}
-            placeholder={"password"}
+            value={this.state.contrasena}
+            onChangeText={(contrasena) => this.setState({contrasena})}
+            placeholder={"contrasena"}
             secureTextEntry={true}
             placeholderTextColor="gray"
             style={styles.input}
