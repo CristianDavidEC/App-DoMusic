@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import ScreenPublicaciones from "./app/screens/Publicaciones";
 import ScreenMain from "./app/screens/Main";
 import LoginScreen from "./app/screens/security/Login";
+import RegisterScreen from "./app/screens/perfiles/Register";
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ export default function App() {
         <Stack.Screen name="Main" component={ScreenMain} />
         <Stack.Screen name="Publicaciones" component={ScreenPublicaciones} /> 
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Register" component={RegisterScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
