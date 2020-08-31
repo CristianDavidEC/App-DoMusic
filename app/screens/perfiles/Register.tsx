@@ -12,6 +12,8 @@ import {
   AsyncStorage,
 } from "react-native";
 
+import { Icon } from 'react-native-elements'
+
 import md5 from "md5";
 import { ServiceKeys } from "../../../keys";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
@@ -85,7 +87,16 @@ export default class Register extends React.Component {
         <SafeAreaView style={styles.container}>
           <ScrollView contentContainerStyle={styles.scroll}>
             <Text style={styles.titleText}>Hi, Welcome To</Text>
-            <Text style={styles.titleText}>My App</Text>
+            
+            <Icon
+            name='compact-disc'
+            type='font-awesome-5'
+            color='white'
+            size = {50}
+            />
+            <Text style={styles.titleText}>
+            DoMusic</Text>
+            
             <TextInput
               value={this.state.nombre}
               keyboardType="default"
@@ -151,7 +162,7 @@ export default class Register extends React.Component {
               style={styles.button}
               onPress={this.onLogin.bind(this)}
             >
-              <Text style={styles.buttonText}> Login </Text>
+              <Text style={styles.buttonText}> Registrate! </Text>
             </TouchableOpacity>
           </ScrollView>
         </SafeAreaView>
