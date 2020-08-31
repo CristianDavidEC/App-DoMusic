@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { ServiceKeys } from "../../keys";
 
-//import SessionNavbar from "./security/Navbar";
+import SessionNavbar from "./security/Navbar";
 
 export default class Publicaciones extends React.Component {
     constructor(props) {
@@ -57,7 +57,7 @@ export default class Publicaciones extends React.Component {
         } else {
             return (
                 <View style={styles.publicacionesView}>
-                    {/* <SessionNavbar navigation={navigation}></SessionNavbar> */}
+                    <SessionNavbar navigation={navigation}></SessionNavbar>
                     <Text style={{ color: "orange", fontSize: 25 }}>Todas las Publicaciones</Text>
                     <FlatList
                         style={styles.flatList}
