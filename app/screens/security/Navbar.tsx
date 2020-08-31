@@ -19,7 +19,7 @@ export default class SessionNavbar extends React.Component {
     if (session) {
       this.setState({
         isLoggedIn: true,
-        name: JSON.parse(session).data.username,
+        nombre: JSON.parse(session).data.nombreUsuario,
       });
     }
   }
@@ -32,7 +32,7 @@ export default class SessionNavbar extends React.Component {
           AsyncStorage.removeItem("session");
           this.setState({
             isLoggedIn: false,
-            name: "",
+            nombre: "",
           });
         },
       },

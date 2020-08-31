@@ -46,7 +46,7 @@ export default class Login extends React.Component {
       .then((data) => data.json())
       .then((data) => {
         AsyncStorage.setItem("session", JSON.stringify(data));
-        this.props.navigation.push("Main");
+        this.props.navigation.push("Publicaciones");
       })
       .catch((err) => {
         Alert.alert("App Message", "Invalid data.");
@@ -60,12 +60,12 @@ export default class Login extends React.Component {
       <ImageBackground source={bgImg} style={styles.backgroundApp}>
         <SafeAreaView style={styles.container}>
           <Text style={styles.titleText}>Hi, Welcome To</Text>
-          <Text style={styles.titleText}>My App</Text>
+          <Text style={styles.titleText}>DoMusic</Text>
           <TextInput
             value={this.state.nombreUsuario}
             keyboardType="default"
             onChangeText={(nombreUsuario) => this.setState({nombreUsuario})}
-            placeholder="nombreUsuario"
+            placeholder="Nombre de Usuario"
             placeholderTextColor="gray"
             style={styles.input}
           />

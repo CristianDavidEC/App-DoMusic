@@ -14,7 +14,8 @@ import {
 
 import md5 from "md5";
 import { ServiceKeys } from "../../../keys";
-import { FlatList } from "react-native-gesture-handler";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
+import Constants from 'expo-constants';
 
 const bgImg = require("../../../assets/bg2.jpg");
 
@@ -33,7 +34,7 @@ export default class Register extends React.Component {
     fechaNacimiento: "",
     ciudad: "",
     genero: "Masculino",
-    url:  `${ServiceKeys.URL}/musico-profesionals`,
+    url: `${ServiceKeys.URL}/musico-profesionals`,
   };
 
   async onLogin() {
@@ -76,82 +77,83 @@ export default class Register extends React.Component {
     //Alert.alert("Credentials", `nombreUsuario: ${u} - contrasena: ${p}`);
   }
 
-  
+
   render() {
     const { navigation } = this.props;
     return (
       <ImageBackground source={bgImg} style={styles.backgroundApp}>
         <SafeAreaView style={styles.container}>
-          <Text style={styles.titleText}>Hi, Welcome To</Text>
-          <Text style={styles.titleText}>My App</Text>
-          <TextInput
-            value={this.state.nombre}
-            keyboardType="default"
-            onChangeText={(nombre) => this.setState({nombre})}
-            placeholder="nombre"
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.apellido}
-            onChangeText={(apellido) => this.setState({apellido})}
-            placeholder={"apellido"}
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.tipo}
-            keyboardType="default"
-            onChangeText={(tipo) => this.setState({tipo})}
-            placeholder="tipo"
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.generoMusica}
-            onChangeText={(generoMusica) => this.setState({generoMusica})}
-            placeholder={"generoMusica"}
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.celular}
-            keyboardType="default"
-            onChangeText={(celular) => this.setState({celular})}
-            placeholder="celular"
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.correo}
-            onChangeText={(correo) => this.setState({correo})}
-            placeholder={"correo"}
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.fechaNacimiento}
-            onChangeText={(fechaNacimiento) => this.setState({fechaNacimiento})}
-            placeholder={"fechaNacimiento"}
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.ciudad}
-            keyboardType="default"
-            onChangeText={(ciudad) => this.setState({ciudad})}
-            placeholder="ciudad"
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
+          <ScrollView contentContainerStyle={styles.scroll}>
+            <Text style={styles.titleText}>Hi, Welcome To</Text>
+            <Text style={styles.titleText}>My App</Text>
+            <TextInput
+              value={this.state.nombre}
+              keyboardType="default"
+              onChangeText={(nombre) => this.setState({ nombre })}
+              placeholder="nombre"
+              placeholderTextColor="gray"
+              style={styles.input}
+            />
+            <TextInput
+              value={this.state.apellido}
+              onChangeText={(apellido) => this.setState({ apellido })}
+              placeholder={"apellido"}
+              placeholderTextColor="gray"
+              style={styles.input}
+            />
+            <TextInput
+              value={this.state.tipo}
+              keyboardType="default"
+              onChangeText={(tipo) => this.setState({ tipo })}
+              placeholder="tipo"
+              placeholderTextColor="gray"
+              style={styles.input}
+            />
+            <TextInput
+              value={this.state.generoMusica}
+              onChangeText={(generoMusica) => this.setState({ generoMusica })}
+              placeholder={"generoMusica"}
+              placeholderTextColor="gray"
+              style={styles.input}
+            />
+            <TextInput
+              value={this.state.celular}
+              keyboardType="default"
+              onChangeText={(celular) => this.setState({ celular })}
+              placeholder="celular"
+              placeholderTextColor="gray"
+              style={styles.input}
+            />
+            <TextInput
+              value={this.state.correo}
+              onChangeText={(correo) => this.setState({ correo })}
+              placeholder={"correo"}
+              placeholderTextColor="gray"
+              style={styles.input}
+            />
+            <TextInput
+              value={this.state.fechaNacimiento}
+              onChangeText={(fechaNacimiento) => this.setState({ fechaNacimiento })}
+              placeholder={"fechaNacimiento"}
+              placeholderTextColor="gray"
+              style={styles.input}
+            />
+            <TextInput
+              value={this.state.ciudad}
+              keyboardType="default"
+              onChangeText={(ciudad) => this.setState({ ciudad })}
+              placeholder="ciudad"
+              placeholderTextColor="gray"
+              style={styles.input}
+            />
 
-          <TouchableOpacity
-            style={styles.button}
-            onPress={this.onLogin.bind(this)}
-          >
-            <Text style={styles.buttonText}> Login </Text>
-          </TouchableOpacity>
-          
+            <TouchableOpacity
+              style={styles.button}
+              onPress={this.onLogin.bind(this)}
+            >
+              <Text style={styles.buttonText}> Login </Text>
+            </TouchableOpacity>
+          </ScrollView>
         </SafeAreaView>
       </ImageBackground>
     );
@@ -165,6 +167,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+  },
+  scroll:{
+    flexGrow: 1,
     alignItems: "center",
     justifyContent: "center",
   },
