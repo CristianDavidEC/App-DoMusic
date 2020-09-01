@@ -86,6 +86,7 @@ export default class Register extends React.Component {
         <SafeAreaView style={styles.container}>
           <ScrollView contentContainerStyle={styles.scroll}>
             <Text style={styles.titleText}>Bienvenido a</Text>
+            
             <View style={styles.iconTitle}>
                 <Icon
                 name='compact-disc'
@@ -108,7 +109,7 @@ export default class Register extends React.Component {
                 
                 size = {30}
                 /> 
-                <TextInput style={styles.textMargin}
+                <TextInput
                 value={this.state.nombre}
                 keyboardType="default"
                 onChangeText={(nombre) => this.setState({ nombre })}
