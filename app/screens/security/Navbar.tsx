@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, Alert, Button, AsyncStorage, SafeAreaView } from "react-native";
-import { animateScroll as scroll} from "react-scroll";
+import { StyleSheet, Text, Alert, Button, AsyncStorage, SafeAreaView, View } from "react-native";
+
 
 export default class SessionNavbar extends React.Component {
   constructor(props) {
@@ -48,7 +48,7 @@ export default class SessionNavbar extends React.Component {
     } else {
       return (
         
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
           <Button 
           title="Iniciar Sesion"
           onPress={() => this.props.navigation.navigate("Login")}
@@ -62,7 +62,7 @@ export default class SessionNavbar extends React.Component {
           onPress={() => this.props.navigation.navigate("Register")}
         />
 
-        </SafeAreaView>
+        </View>
       );
     }
     
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    alignItems: "center",
+    flexDirection: 'row',
+    alignSelf:'flex-start',
   },
 });
