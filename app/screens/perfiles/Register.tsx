@@ -9,12 +9,12 @@ import {
   ImageBackground,
   SafeAreaView,
   Button,
+  View,
   AsyncStorage,
 } from "react-native";
 
 import { Icon } from 'react-native-elements'
 
-import md5 from "md5";
 import { ServiceKeys } from "../../../keys";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import Constants from 'expo-constants';
@@ -81,88 +81,149 @@ export default class Register extends React.Component {
 
 
   render() {
-    const { navigation } = this.props;
     return (
       <ImageBackground source={bgImg} style={styles.backgroundApp}>
         <SafeAreaView style={styles.container}>
           <ScrollView contentContainerStyle={styles.scroll}>
-            <Text style={styles.titleText}>Hi, Welcome To</Text>
+            <Text style={styles.titleText}>Bienvenido a</Text>
+            <View style={styles.iconTitle}>
+                <Icon
+                name='compact-disc'
+                type='font-awesome-5'
+                color='white'
+                size = {50}
+                />
             
-            <Icon
-            name='compact-disc'
-            type='font-awesome-5'
-            color='white'
-            size = {50}
-            />
-            <Text style={styles.titleText}>
-            DoMusic</Text>
-            
-            <TextInput
-              value={this.state.nombre}
-              keyboardType="default"
-              onChangeText={(nombre) => this.setState({ nombre })}
-              placeholder="nombre"
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.apellido}
-              onChangeText={(apellido) => this.setState({ apellido })}
-              placeholder={"apellido"}
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.tipo}
-              keyboardType="default"
-              onChangeText={(tipo) => this.setState({ tipo })}
-              placeholder="tipo"
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.generoMusica}
-              onChangeText={(generoMusica) => this.setState({ generoMusica })}
-              placeholder={"generoMusica"}
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.celular}
-              keyboardType="default"
-              onChangeText={(celular) => this.setState({ celular })}
-              placeholder="celular"
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.correo}
-              onChangeText={(correo) => this.setState({ correo })}
-              placeholder={"correo"}
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.fechaNacimiento}
-              onChangeText={(fechaNacimiento) => this.setState({ fechaNacimiento })}
-              placeholder={"fechaNacimiento"}
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.ciudad}
-              keyboardType="default"
-              onChangeText={(ciudad) => this.setState({ ciudad })}
-              placeholder="ciudad"
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
+                <Text style={styles.titleText}>
+                DoMusic</Text>
+                </View>
+                <Text style={styles.title}>
+                Completa el siguiente formulario</Text>
+
+            <View style={styles.iconText}>
+                <Icon style={styles.iconMargin}
+                name='user'
+                type='font-awesome-5'
+                color='black'
+                
+                size = {30}
+                /> 
+                <TextInput style={styles.textMargin}
+                value={this.state.nombre}
+                keyboardType="default"
+                onChangeText={(nombre) => this.setState({ nombre })}
+                placeholder="Nombre"
+                placeholderTextColor="gray"
+                style={styles.input}
+            /></View>
+
+            <View style={styles.iconText}>
+                <Icon style={styles.iconMargin}
+                name='user'
+                type='font-awesome-5'
+                color='black'
+                size = {30}
+                />
+                <TextInput
+                value={this.state.apellido}
+                onChangeText={(apellido) => this.setState({ apellido })}
+                placeholder={"Apellido"}
+                placeholderTextColor="gray"
+                style={styles.input}
+            /></View>
+            <View style={styles.iconText}>
+                <Icon style={styles.iconMargin}
+                name='music'
+                type='font-awesome-5'
+                color='black'
+                size = {30}
+                />            
+                <TextInput
+                value={this.state.tipo}
+                keyboardType="default"
+                onChangeText={(tipo) => this.setState({ tipo })}
+                placeholder="Tipo de Musico"
+                placeholderTextColor="gray"
+                style={styles.input}
+            /></View>
+            <View style={styles.iconText}>
+                <Icon style={styles.iconMargin}
+                name='headphones'
+                type='font-awesome-5'
+                color='black'
+                size = {30}
+                />        
+                <TextInput
+                value={this.state.generoMusica}
+                onChangeText={(generoMusica) => this.setState({ generoMusica })}
+                placeholder={"Genero Musical"}
+                placeholderTextColor="gray"
+                style={styles.input}
+                /></View>
+            <View style={styles.iconText}>
+                <Icon style={styles.iconMargin}
+                name='phone'
+                type='font-awesome-5'
+                color='black'
+                size = {30}
+                />        
+                <TextInput
+                value={this.state.celular}
+                keyboardType="phone-pad"
+                onChangeText={(celular) => this.setState({ celular })}
+                placeholder="Numero Celular"
+                placeholderTextColor="gray"
+                style={styles.input}
+                /></View>
+            <View style={styles.iconText}>
+                <Icon style={styles.iconMargin}
+                name='envelope'
+                type='font-awesome-5'
+                color='black'
+                size = {30}
+                />        
+                <TextInput
+                value={this.state.correo}
+                onChangeText={(correo) => this.setState({ correo })}
+                placeholder={"Correo Electronico"}
+                placeholderTextColor="gray"
+                style={styles.input}
+                /></View>
+            <View style={styles.iconText}>
+                <Icon style={styles.iconMargin}
+                name='calendar-day'
+                type='font-awesome-5'
+                color='black'
+                size = {30}
+                />        
+                <TextInput
+                value={this.state.fechaNacimiento}
+                onChangeText={(fechaNacimiento) => this.setState({ fechaNacimiento })}
+                placeholder={"Fecha Nacimiento"}
+                placeholderTextColor="gray"
+                style={styles.input}
+            /></View>
+            <View style={styles.iconText}>
+                <Icon style={styles.iconMargin}
+                name='globe-americas'
+                type='font-awesome-5'
+                color='black'
+                size = {30}
+                />        
+                <TextInput
+                value={this.state.ciudad}
+                keyboardType="default"
+                onChangeText={(ciudad) => this.setState({ ciudad })}
+                placeholder="Pais"
+                placeholderTextColor="gray"
+                style={styles.input}
+            /></View>
 
             <TouchableOpacity
               style={styles.button}
               onPress={this.onLogin.bind(this)}
             >
-              <Text style={styles.buttonText}> Registrate! </Text>
+              <Text style={styles.buttonText}> Regístrate </Text>
             </TouchableOpacity>
           </ScrollView>
         </SafeAreaView>
@@ -190,6 +251,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     color: "#fff",
   },
+
+  title:{
+    fontSize: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    color: "#fff",
+    marginBottom: 6,
+    marginTop:10,
+
+  },
+
   button: {
     alignItems: "center",
     backgroundColor: "powderblue",
@@ -200,6 +272,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderRadius: 25,
     marginBottom: 10,
+    marginTop:20,
   },
   buttonText: {
     fontSize: 20,
@@ -216,4 +289,35 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     marginVertical: 10,
   },
+
+  iconText: {
+    width:260,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    marginTop: '6%',
+    borderBottomEndRadius:20,
+    borderTopEndRadius:20,
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
+  },
+  
+  iconTitle: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+  },
+
+  iconMargin:{
+    marginLeft: '3%',
+    marginRight: '3%',
+  },
+
+  textMargin: {
+  }
+
 });
