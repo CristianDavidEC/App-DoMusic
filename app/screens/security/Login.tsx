@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: "white",
     marginTop: 25,
-    borderRadius: 10,
+    borderRadius: 20,
     height: 65,
   },
 

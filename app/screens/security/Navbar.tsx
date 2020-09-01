@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, Alert, Button, AsyncStorage, SafeAreaView, View } from "react-native";
+import { StyleSheet, Text, Alert, Button, AsyncStorage, SafeAreaView, View, TouchableOpacity } from "react-native";
 import { animateScroll as scroll } from "react-scroll";
 
 import { Icon, Input } from 'react-native-elements';
@@ -65,21 +65,91 @@ export default class SessionNavbar extends React.Component {
 
     } else {
       return (
-        
-        <View style={styles.container}>
-          <Button 
-          title="Iniciar Sesion"
-          onPress={() => this.props.navigation.navigate("Login")}
-        />
-        <Button 
-          title="Contacto"
-          onPress={() => this.props.navigation.navigate("Contacto")}
-        />
-        <Button
-          title="Registrarse"
-          onPress={() => this.props.navigation.navigate("Register")}
-        />
 
+        <View style={styles.container}>
+
+          {/* <View >
+            <Icon
+              name='sign-in-alt'
+              type='font-awesome-5'
+              color='white'
+              size={30}
+            />
+            <Button
+              color='#092740'
+              title="Iniciar Sesion"
+              onPress={() => this.props.navigation.navigate("Login")}
+            />
+          </View>
+
+          <Icon
+            name='sign-in-alt'
+            type='font-awesome-5'
+            color='white'
+            size={30}
+          />
+          <Button
+            color='#092740'
+            title="Contacto"
+            onPress={() => this.props.navigation.navigate("Contacto")}
+          />
+
+          <Icon
+            name='sign-in-alt'
+            type='font-awesome-5'
+            color='white'
+            size={30}
+          />
+          <Button
+            color='#092740'
+            title="Registrarse"
+            onPress={() => this.props.navigation.navigate("Register")}
+          /> */}
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate("Login")}
+          >
+            <View style={styles.view1}>
+              <Icon
+                name='sign-in-alt'
+                type='font-awesome-5'
+                color='white'
+                size={30}
+                style={styles.icono1}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate("Contacto")}
+          >
+            <View style={styles.view1}>
+              <Icon
+                name='envelope-open-text'
+                type='font-awesome-5'
+                color='white'
+                size={30}
+                style={styles.icono1}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate("Register")}
+          >
+            <View style={styles.view1}>
+              <Icon
+                name='user-plus'
+                type='font-awesome-5'
+                color='white'
+                size={30}
+                style={styles.icono1}
+              />
+            </View>
+          </TouchableOpacity>
         </View>
       );
     }
@@ -97,7 +167,21 @@ const styles = StyleSheet.create({
 
   container: {
     flexDirection: 'row',
-    alignSelf:'flex-start',
+    justifyContent: 'space-between',
+    backgroundColor: "#092740",
+    width: '100%',
+    height: 50,
+    padding:5
+  },
+
+  view1: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+
+  },
+
+  icono1: {
+    marginTop:5
   },
 
   cont: {
@@ -107,7 +191,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     width: "100%",
     height: 50,
-    backgroundColor: "#2f6997"
+    backgroundColor: "#092740"
   },
 
   textNav: {
@@ -117,5 +201,15 @@ const styles = StyleSheet.create({
     textAlign: "center",
     height: 60,
     paddingTop: 12
-  }
+  },
+
+  button: {
+    alignItems: "center",
+    backgroundColor: "rgba(57, 86, 115 ,0.4)",
+    width: '30%',
+    height: 40,
+    borderRadius: 10,
+    marginLeft:5,
+    marginRight:5,
+  },
 });
