@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   loginView: {
     flex: 1,
     alignItems: "center",
-    marginBottom: 50,
+    marginBottom: 30,
     zIndex: 1,
   },
 
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 20,
+    marginBottom: 10,
     width: "100%",
     height: 50,
     backgroundColor: "#2f6997"

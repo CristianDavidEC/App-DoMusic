@@ -9,20 +9,21 @@ import {
     Image,
     Dimensions,
     TouchableHighlight,
+    TouchableOpacity
 } from "react-native";
 import { ServiceKeys } from "../../keys";
+import { Icon, Card, Button } from 'react-native-elements';
 
 import SessionNavbar from "./security/Navbar";
 
 export default class Publicaciones extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             loading: false,
             Publicaciones: [],
             url:
-            `${ServiceKeys.URL}/publicaciones`,
+                `${ServiceKeys.URL}/publicaciones`,
         };
     }
 
@@ -58,28 +59,78 @@ export default class Publicaciones extends React.Component {
             return (
                 <View style={styles.publicacionesView}>
                     <SessionNavbar navigation={navigation}></SessionNavbar>
-                    <Text style={{ color: "orange", fontSize: 25 }}>Todas las Publicaciones</Text>
+                    {/* <Text style={styles.titulo}>Publicaciones</Text> */}
                     <FlatList
                         style={styles.flatList}
                         data={this.state.publicaciones}
                         renderItem={({ item }) => (
+
                             <View style={styles.publicacionViewContent}>
                                 <TouchableHighlight
-                                 onPress={() => {
-                                  Alert.alert(`Image De la Publicacion: ${item.idPublicacion}`);
-                                }}
+                                    onPress={() => {
+                                        Alert.alert(`Image De la Publicacion: ${item.idPublicacion}`);
+                                    }}
                                 >
                                     <Image
+                                        style={styles.img}
                                         source={{
-                                            width: 200,
-                                            height: 150,
+                                            width: 382,
+                                            height: 420,
                                             uri: `${ServiceKeys.URL}/files/2/${item.idPublicacion}`,
-                                        }}
+                                        }
+                                        }
                                     />
                                 </TouchableHighlight>
-                                <Text style={styles.publi}>{item.titulo}</Text>
-                                <Text numberOfLines={3}>{item.contenido}</Text>
-                                <Text>{item.fecha}</Text>
+                                <View style={styles.texto}>
+                                    <Text style={styles.publiTitulo}>{item.titulo}</Text>
+                                    <Text style={styles.conten} numberOfLines={2}>{item.contenido}</Text>
+                                    <Text style={styles.fecha}>{item.fecha}</Text>
+                                </View>
+
+                                <View style={styles.botones}>
+                                    <TouchableOpacity
+                                        style={styles.button}>
+                                        <View style={styles.view1}>
+                                            <Icon
+                                                name='star'
+                                                type='font-awesome-5'
+                                                color='white'
+                                                size={25}
+                                                style={styles.icono1}
+                                            />
+                                            <Text style={styles.buttonText}> {item.reacciones} </Text>
+                                        </View>
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity
+                                        style={styles.button}>
+                                        <View style={styles.view1}>
+                                            <Icon
+                                                name='comment-medical'
+                                                type='font-awesome-5'
+                                                color='white'
+                                                size={25}
+                                                style={styles.icono1}
+                                            />
+                                        </View>
+                                    </TouchableOpacity>
+
+                                    <TouchableOpacity
+                                        style={styles.button}>
+                                        <View style={styles.view1}>
+                                            <Icon
+                                                name='comments'
+                                                type='font-awesome-5'
+                                                color='white'
+                                                size={25}
+                                                style={styles.icono1}
+                                            />
+                                        </View>
+                                    </TouchableOpacity>
+
+
+                                </View>
+
                             </View>
                         )}
                     ></FlatList>
@@ -91,47 +142,108 @@ export default class Publicaciones extends React.Component {
 
 const styles = StyleSheet.create({
     publicacionViewContent: {
-        borderColor: "gray",
-        borderWidth: 2,
-        borderRadius: 5,
+        borderColor: "#CCD1D1",
+        borderWidth: 1,
+        borderRadius: 10,
         margin: 5,
+        width: '98%',
+        backgroundColor: '#e7ecf1',
+        marginBottom: 15
     },
-    publi: {
-        fontSize: 18,
-        color: "#ff0000",
+
+    publiTitulo: {
+        fontSize: 22,
+        color: "black",
+        fontWeight: "bold",
+        marginTop: 3,
+        marginBottom: 6
     },
+
     publicacionesView: {
         alignItems: "center",
         alignContent: "center",
         flex: 1,
+        width: '100%',
     },
+
     dataViewLoading: {
         alignItems: "center",
         alignContent: "center",
         flex: 1,
     },
-    button: {
-        alignSelf: "center",
-        alignContent: "flex-start",
-    },
-    itemTitle: {
-        padding: 10,
-        fontSize: 25,
-        height: 44,
-        fontWeight: "bold",
-    },
+
     flatList: {
         alignContent: "center",
         textAlign: "center",
         alignSelf: "center",
+        width: "100%"
     },
+
     img: {
-        width: 100,
-        height: 100,
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10
     },
-    separator: {
-        height: 4,
-        backgroundColor: "black",
-        width: Dimensions.get("window").width / 2,
+
+    titulo: {
+        fontSize: 25,
+        fontWeight: "bold",
+        marginBottom: 5
     },
+
+    texto: {
+        marginLeft: 10,
+        marginRight: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: "#CCD1D1"
+        
+    },
+
+    button: {
+        alignItems: "center",
+        backgroundColor: "rgba(78, 131, 184 ,0.7)",
+        width: 70,
+        height: 40,
+        borderWidth: 1,
+        borderColor: "white",
+        borderRadius: 10,
+        marginTop: 10,
+        marginBottom: 10,
+        marginRight: 10,
+        marginLeft: 10,
+    },
+
+    icono1: {
+        marginTop: 5
+    },
+
+    view1: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        height: 65,
+    },
+
+    buttonText: {
+        fontSize: 25,
+        alignItems: "center",
+        justifyContent: "center",
+        color: 'white'
+    },
+
+    botones: {
+        flexDirection: 'row',
+        justifyContent:"space-between"
+    },
+
+    conten:{
+        color: '#3C4752',
+        fontSize: 18,
+        marginBottom: 5
+    },
+
+    fecha:{
+        color: '#3C4752',
+        fontSize:10,
+        marginBottom: 5
+    }
+
 });
