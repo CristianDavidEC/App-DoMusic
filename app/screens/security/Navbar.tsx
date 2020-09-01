@@ -53,6 +53,10 @@ export default class SessionNavbar extends React.Component {
           title="Iniciar Sesion"
           onPress={() => this.props.navigation.navigate("Login")}
         />
+        <Button 
+          title="Contacto"
+          onPress={() => this.props.navigation.navigate("Contacto")}
+        />
         <Button
           title="Registrarse"
           onPress={() => this.props.navigation.navigate("Register")}
