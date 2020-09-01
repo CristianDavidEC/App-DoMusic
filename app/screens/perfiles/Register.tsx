@@ -67,7 +67,7 @@ export default class Register extends React.Component {
         ciudad: c,
         genero: g,
       }),
-    })
+    })  
       .then((data) => data.json())
       .then((data) => {
         AsyncStorage.setItem("session", JSON.stringify(data));
