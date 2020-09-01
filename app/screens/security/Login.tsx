@@ -54,7 +54,6 @@ export default class Login extends React.Component {
       .catch((err) => {
         Alert.alert("App Message", "Invalid data.");
       });
-    //Alert.alert("Credentials", `nombreUsuario: ${u} - contrasena: ${p}`);
   }
 
   render() {
