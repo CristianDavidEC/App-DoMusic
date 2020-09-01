@@ -9,12 +9,12 @@ import {
   ImageBackground,
   SafeAreaView,
   Button,
+  View,
   AsyncStorage,
 } from "react-native";
 
 import { Icon } from 'react-native-elements'
 
-import md5 from "md5";
 import { ServiceKeys } from "../../../keys";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import Constants from 'expo-constants';
@@ -31,7 +31,7 @@ export default class Contacto extends React.Component {
     correo: "",
     celular: "",
     asunto: "",
-    mensaje: "",    
+    mensaje: "",
     url: `${ServiceKeys.URL}/contactar`,
   };
 
@@ -41,7 +41,7 @@ export default class Contacto extends React.Component {
     const cel = this.state.celular;
     const a = this.state.asunto;
     const m = this.state.mensaje;
-    
+
     fetch(this.state.url, {
       method: "POST",
       headers: {
@@ -75,55 +75,98 @@ export default class Contacto extends React.Component {
         <SafeAreaView style={styles.container}>
           <ScrollView contentContainerStyle={styles.scroll}>
             <Text style={styles.titleText}>Contactar a </Text>
-            
-            <Icon
-            name='compact-disc'
-            type='font-awesome-5'
-            color='white'
-            size = {50}
-            />
-            <Text style={styles.titleText}>
-            DoMusic</Text>
-            
-            <TextInput
-              value={this.state.nombre}
-              keyboardType="default"
-              onChangeText={(nombre) => this.setState({ nombre })}
-              placeholder="Nombre"
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.correo}
-              onChangeText={(correo) => this.setState({ correo })}
-              placeholder={"Correo Electrónico"}
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.celular}
-              keyboardType="default"
-              onChangeText={(celular) => this.setState({ celular })}
-              placeholder="Celular"
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.asunto}
-              onChangeText={(asunto) => this.setState({ asunto })}
-              placeholder={"Asunto"}
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            <TextInput
-              value={this.state.mensaje}
-              keyboardType="default"
-              onChangeText={(mensaje) => this.setState({ mensaje })}
-              placeholder="Mensaje"
-              placeholderTextColor="gray"
-              style={styles.input}
-            />
-            
+
+            <View style={styles.iconTitle}>
+              <Icon
+                name='compact-disc'
+                type='font-awesome-5'
+                color='white'
+                size={50}
+              />
+              <Text style={styles.titleText}>
+                DoMusic</Text>
+            </View>
+
+            <View style={styles.iconText}>
+              <Icon style={styles.iconMargin}
+                name='user'
+                type='font-awesome-5'
+                color='black'
+                size={30}
+              />
+              <TextInput
+                value={this.state.nombre}
+                keyboardType="default"
+                onChangeText={(nombre) => this.setState({ nombre })}
+                placeholder="Nombre"
+                placeholderTextColor="gray"
+                style={styles.input}
+              /></View>
+
+            <View style={styles.iconText}>
+              <Icon style={styles.iconMargin}
+                name='envelope'
+                type='font-awesome-5'
+                color='black'
+                size={30}
+              />
+              <TextInput
+                value={this.state.correo}
+                onChangeText={(correo) => this.setState({ correo })}
+                placeholder={"Correo Electrónico"}
+                placeholderTextColor="gray"
+                style={styles.input}
+              /></View>
+
+            <View style={styles.iconText}>
+              <Icon style={styles.iconMargin}
+                name='phone'
+                type='font-awesome-5'
+                color='black'
+                size={30}
+              />
+              <TextInput
+                value={this.state.celular}
+                keyboardType="phone-pad"
+                onChangeText={(celular) => this.setState({ celular })}
+                placeholder="Celular"
+                placeholderTextColor="gray"
+                style={styles.input}
+              /></View>
+
+            <View style={styles.iconText}>
+              <Icon style={styles.iconMargin}
+                name='bookmark'
+                type='font-awesome-5'
+                color='black'
+                size={30}
+              />
+              <TextInput
+                value={this.state.asunto}
+                onChangeText={(asunto) => this.setState({ asunto })}
+                placeholder={"Asunto"}
+                placeholderTextColor="gray"
+                style={styles.input}
+              /></View>
+
+            <View style={styles.iconText}>
+              <Icon style={styles.iconMargin}
+                name='pen'
+                type='font-awesome-5'
+                color='black'
+                size={30}
+              />
+              <TextInput
+                value={this.state.mensaje}
+                keyboardType="default"
+                onChangeText={(mensaje) => this.setState({ mensaje })}
+                placeholder="Mensaje"
+                placeholderTextColor="gray"
+                style={styles.input}
+              /></View>
+
+
+
             <TouchableOpacity
               style={styles.button}
               onPress={this.onLogin.bind(this)}
@@ -145,7 +188,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  scroll:{
+  scroll: {
     flexGrow: 1,
     alignItems: "center",
     justifyContent: "center",
@@ -156,6 +199,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     color: "#fff",
   },
+
+  title: {
+    fontSize: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    color: "#fff",
+    marginBottom: 6,
+    marginTop: 10,
+
+  },
+
   button: {
     alignItems: "center",
     backgroundColor: "powderblue",
@@ -166,12 +220,14 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderRadius: 25,
     marginBottom: 10,
+    marginTop: 20,
   },
   buttonText: {
     fontSize: 20,
     alignItems: "center",
     justifyContent: "center",
   },
+
   input: {
     width: 200,
     fontSize: 20,
@@ -181,5 +237,32 @@ const styles = StyleSheet.create({
     borderColor: "white",
     backgroundColor: "#fff",
     marginVertical: 10,
+  },
+
+  iconText: {
+    width: 260,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    marginTop: '6%',
+    borderBottomEndRadius: 20,
+    borderTopEndRadius: 20,
+    borderTopLeftRadius: 20,
+    borderBottomLeftRadius: 20,
+  },
+
+  iconTitle: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+  },
+
+  iconMargin: {
+    marginLeft: '3%',
+    marginRight: '3%',
   },
 });
