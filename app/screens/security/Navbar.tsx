@@ -65,22 +65,22 @@ export default class SessionNavbar extends React.Component {
 
     } else {
       return (
+        
+        <View style={styles.container}>
+          <Button 
+          title="Iniciar Sesion"
+          onPress={() => this.props.navigation.navigate("Login")}
+        />
+        <Button 
+          title="Contacto"
+          onPress={() => this.props.navigation.navigate("Contacto")}
+        />
+        <Button
+          title="Registrarse"
+          onPress={() => this.props.navigation.navigate("Register")}
+        />
 
-        <SafeAreaView style={styles.container}>
-          <Button
-            title="Iniciar Sesion"
-            onPress={() => this.props.navigation.navigate("Login")}
-          />
-          <Button
-            title="Contacto"
-            onPress={() => this.props.navigation.navigate("Contacto")}
-          />
-          <Button
-            title="Registrarse"
-            onPress={() => this.props.navigation.navigate("Register")}
-          />
-
-        </SafeAreaView>
+        </View>
       );
     }
 
@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    alignItems: "center",
+    flexDirection: 'row',
+    alignSelf:'flex-start',
   },
 
   cont: {
