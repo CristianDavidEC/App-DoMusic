@@ -7,13 +7,16 @@ import {
   TouchableOpacity,
   TextInput,
   ImageBackground,
+  View,
   SafeAreaView,
   Button,
   AsyncStorage,
+  ScrollView,
 } from "react-native";
 
 import md5 from "md5";
 import { ServiceKeys } from "../../../keys";
+import { Icon, Input } from 'react-native-elements';
 
 const bgImg = require("../../../assets/bg2.jpg");
 
@@ -25,7 +28,7 @@ export default class Login extends React.Component {
   state = {
     nombreUsuario: "",
     contrasena: "",
-    url:  `${ServiceKeys.URL}/login`,
+    url: `${ServiceKeys.URL}/login`,
 
   };
 
@@ -59,31 +62,82 @@ export default class Login extends React.Component {
     return (
       <ImageBackground source={bgImg} style={styles.backgroundApp}>
         <SafeAreaView style={styles.container}>
-          <Text style={styles.titleText}>Hi, Welcome To</Text>
-          <Text style={styles.titleText}>DoMusic</Text>
-          <TextInput
-            value={this.state.nombreUsuario}
-            keyboardType="default"
-            onChangeText={(nombreUsuario) => this.setState({nombreUsuario})}
-            placeholder="Nombre de Usuario"
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
-          <TextInput
-            value={this.state.contrasena}
-            onChangeText={(contrasena) => this.setState({contrasena})}
-            placeholder={"contrasena"}
-            secureTextEntry={true}
-            placeholderTextColor="gray"
-            style={styles.input}
-          />
+          <ScrollView contentContainerStyle={styles.scroll}>
 
-          <TouchableOpacity
-            style={styles.button}
-            onPress={this.onLogin.bind(this)}
-          >
-            <Text style={styles.buttonText}> Login </Text>
-          </TouchableOpacity>
+            <View style={styles.head}>
+              {/* Titulo de DoMusic */}
+              <View style={styles.searchSection}>
+                <Icon
+                  name='compact-disc'
+                  type='font-awesome-5'
+                  color='white'
+                  size={50}
+                  style={styles.iconoSup}
+                />
+                <Text style={styles.title}>DoMusic</Text>
+              </View>
+
+              <Text style={styles.titleText}>Bienvenido</Text>
+              <Text style={styles.titleText}>Inicia Sesión</Text>
+            </View>
+
+
+            {/* Elemento de input nombreUsuario */}
+            <View style={styles.view}>
+              <Icon
+                name='user'
+                type='font-awesome-5'
+                color='#092740'
+                size={30}
+                style={styles.icono}
+              />
+              <TextInput
+                value={this.state.nombreUsuario}
+                keyboardType="default"
+                onChangeText={(nombreUsuario) => this.setState({ nombreUsuario })}
+                placeholder="Nombre de Usuario"
+                placeholderTextColor="gray"
+                style={styles.input}
+              />
+            </View>
+
+            {/* Elemento de Input Contraseña */}
+            <View style={styles.view}>
+              <Icon
+                name='lock'
+                type='font-awesome-5'
+                color='#092740'
+                size={30}
+                style={styles.icono}
+              />
+              <TextInput
+                value={this.state.contrasena}
+                onChangeText={(contrasena) => this.setState({ contrasena })}
+                placeholder={"Contraseña"}
+                secureTextEntry={true}
+                placeholderTextColor="gray"
+                style={styles.input}
+              />
+            </View>
+
+
+            <TouchableOpacity
+              style={styles.button}
+              onPress={this.onLogin.bind(this)}
+            >
+              <View style={styles.view1}>
+                <Icon
+                  name='sign-in-alt'
+                  type='font-awesome-5'
+                  color='white'
+                  size={30}
+                  style={styles.icono1}
+                />
+                <Text style={styles.buttonText}> Ingresar </Text>
+              </View>
+            </TouchableOpacity>
+
+          </ScrollView>
         </SafeAreaView>
       </ImageBackground>
     );
@@ -95,41 +149,96 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
   },
+
   container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    margin: 0
   },
-  titleText: {
+
+  title: {
     fontSize: 50,
-    alignItems: "center",
-    justifyContent: "center",
+    fontWeight: "bold",
     color: "#fff",
   },
+
+  titleText: {
+    fontSize: 50,
+    color: "#fff",
+  },
+
   button: {
     alignItems: "center",
-    backgroundColor: "powderblue",
-    width: 200,
-    height: 44,
-    padding: 10,
+    backgroundColor: "rgba(68, 133, 203 ,0.4)",
+    width: 250,
+    height: 50,
     borderWidth: 1,
     borderColor: "white",
-    borderRadius: 25,
-    marginBottom: 10,
+    borderRadius: 10,
+    marginTop: 100,
   },
+
   buttonText: {
-    fontSize: 20,
+    fontSize: 25,
     alignItems: "center",
     justifyContent: "center",
+    color:'white'
   },
+
   input: {
-    width: 200,
-    fontSize: 20,
-    height: 44,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: "white",
+    width: 300,
+    fontSize: 22,
+    paddingLeft: 10,
     backgroundColor: "#fff",
     marginVertical: 10,
+    display: "flex",
+    borderRadius: 10
   },
+
+  iconoSup: {
+    marginTop: 10
+  },
+
+  icono: {
+    marginLeft: 5,
+    padding: 5,
+    marginTop: 10
+  },
+
+  icono1: {
+    marginTop:5
+  },
+
+  searchSection: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+
+  view: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: "white",
+    marginTop: 25,
+    borderRadius: 10,
+    height: 65,
+  },
+
+  view1: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    height: 65,
+  },
+
+  scroll: {
+    flexGrow: 1,
+    alignItems: "center",
+    margin: 0,
+  },
+
+  head: {
+    alignItems: "center",
+    marginTop: 40,
+    marginBottom: 50
+  }
 });
