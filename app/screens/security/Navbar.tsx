@@ -1,14 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, Alert, Button, AsyncStorage, SafeAreaView } from "react-native";
-import { animateScroll as scroll} from "react-scroll";
+import { StyleSheet, Text, Alert, Button, AsyncStorage, SafeAreaView, View, TouchableOpacity } from "react-native";
+import { animateScroll as scroll } from "react-scroll";
+
+import { Icon, Input } from 'react-native-elements';
 
 export default class SessionNavbar extends React.Component {
   constructor(props) {
     super(props);
   }
 
- state = {
+  state = {
     isLoggedIn: false,
     nombre: "",
   };
@@ -25,9 +27,9 @@ export default class SessionNavbar extends React.Component {
   }
 
   signOut = () => {
-    Alert.alert("Sign out", "Do you want to sign out?", [
+    Alert.alert("Cerrar Sessión", "Seguro que deseas salir?", [
       {
-        text: "Yes",
+        text: "Si",
         onPress: () => {
           AsyncStorage.removeItem("session");
           this.setState({
@@ -44,28 +46,114 @@ export default class SessionNavbar extends React.Component {
 
   render() {
     if (this.state.isLoggedIn) {
-      return <Text onPress={this.signOut}>In session {this.state.nombre} </Text>;
+      return (
+        <View style={styles.cont}>
+          <Text
+            onPress={this.signOut}
+            style={styles.textNav}
+          >
+            En sesión {this.state.nombre} </Text>
+          <Icon
+            name='sign-in-alt'
+            type='font-awesome-5'
+            color='white'
+            size={30}
+          />
+        </View>
+
+      );
+
     } else {
       return (
-        
-        <SafeAreaView style={styles.container}>
-          <Button 
-          title="Iniciar Sesion"
-          onPress={() => this.props.navigation.navigate("Login")}
-        />
-        <Button 
-          title="Contacto"
-          onPress={() => this.props.navigation.navigate("Contacto")}
-        />
-        <Button
-          title="Registrarse"
-          onPress={() => this.props.navigation.navigate("Register")}
-        />
 
-        </SafeAreaView>
+        <View style={styles.container}>
+
+          {/* <View >
+            <Icon
+              name='sign-in-alt'
+              type='font-awesome-5'
+              color='white'
+              size={30}
+            />
+            <Button
+              color='#092740'
+              title="Iniciar Sesion"
+              onPress={() => this.props.navigation.navigate("Login")}
+            />
+          </View>
+
+          <Icon
+            name='sign-in-alt'
+            type='font-awesome-5'
+            color='white'
+            size={30}
+          />
+          <Button
+            color='#092740'
+            title="Contacto"
+            onPress={() => this.props.navigation.navigate("Contacto")}
+          />
+
+          <Icon
+            name='sign-in-alt'
+            type='font-awesome-5'
+            color='white'
+            size={30}
+          />
+          <Button
+            color='#092740'
+            title="Registrarse"
+            onPress={() => this.props.navigation.navigate("Register")}
+          /> */}
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate("Login")}
+          >
+            <View style={styles.view1}>
+              <Icon
+                name='sign-in-alt'
+                type='font-awesome-5'
+                color='white'
+                size={30}
+                style={styles.icono1}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate("Contacto")}
+          >
+            <View style={styles.view1}>
+              <Icon
+                name='envelope-open-text'
+                type='font-awesome-5'
+                color='white'
+                size={30}
+                style={styles.icono1}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() => this.props.navigation.navigate("Register")}
+          >
+            <View style={styles.view1}>
+              <Icon
+                name='user-plus'
+                type='font-awesome-5'
+                color='white'
+                size={30}
+                style={styles.icono1}
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
       );
     }
-    
+
   }
 }
 
@@ -73,11 +161,55 @@ const styles = StyleSheet.create({
   loginView: {
     flex: 1,
     alignItems: "center",
-    marginBottom: 50,
+    marginBottom: 30,
     zIndex: 1,
   },
 
   container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: "#092740",
+    width: '100%',
+    height: 50,
+    padding:5
+  },
+
+  view1: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+
+  },
+
+  icono1: {
+    marginTop:5
+  },
+
+  cont: {
+    flexDirection: 'row',
     alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10,
+    width: "100%",
+    height: 50,
+    backgroundColor: "#092740"
+  },
+
+  textNav: {
+    color: "white",
+    fontSize: 20,
+    width: "75%",
+    textAlign: "center",
+    height: 60,
+    paddingTop: 12
+  },
+
+  button: {
+    alignItems: "center",
+    backgroundColor: "rgba(57, 86, 115 ,0.4)",
+    width: '30%',
+    height: 40,
+    borderRadius: 10,
+    marginLeft:5,
+    marginRight:5,
   },
 });

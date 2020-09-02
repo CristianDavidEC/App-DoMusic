@@ -67,7 +67,7 @@ export default class Register extends React.Component {
         ciudad: c,
         genero: g,
       }),
-    })
+    })  
       .then((data) => data.json())
       .then((data) => {
         AsyncStorage.setItem("session", JSON.stringify(data));
@@ -86,6 +86,7 @@ export default class Register extends React.Component {
         <SafeAreaView style={styles.container}>
           <ScrollView contentContainerStyle={styles.scroll}>
             <Text style={styles.titleText}>Bienvenido a</Text>
+            
             <View style={styles.iconTitle}>
                 <Icon
                 name='compact-disc'
@@ -104,11 +105,11 @@ export default class Register extends React.Component {
                 <Icon style={styles.iconMargin}
                 name='user'
                 type='font-awesome-5'
-                color='black'
+                color='#092740'
                 
                 size = {30}
                 /> 
-                <TextInput style={styles.textMargin}
+                <TextInput
                 value={this.state.nombre}
                 keyboardType="default"
                 onChangeText={(nombre) => this.setState({ nombre })}
@@ -121,7 +122,7 @@ export default class Register extends React.Component {
                 <Icon style={styles.iconMargin}
                 name='user'
                 type='font-awesome-5'
-                color='black'
+                color='#092740'
                 size = {30}
                 />
                 <TextInput
@@ -135,7 +136,7 @@ export default class Register extends React.Component {
                 <Icon style={styles.iconMargin}
                 name='music'
                 type='font-awesome-5'
-                color='black'
+                color='#092740'
                 size = {30}
                 />            
                 <TextInput
@@ -150,7 +151,7 @@ export default class Register extends React.Component {
                 <Icon style={styles.iconMargin}
                 name='headphones'
                 type='font-awesome-5'
-                color='black'
+                color='#092740'
                 size = {30}
                 />        
                 <TextInput
@@ -164,7 +165,7 @@ export default class Register extends React.Component {
                 <Icon style={styles.iconMargin}
                 name='phone'
                 type='font-awesome-5'
-                color='black'
+                color='#092740'
                 size = {30}
                 />        
                 <TextInput
@@ -179,7 +180,7 @@ export default class Register extends React.Component {
                 <Icon style={styles.iconMargin}
                 name='envelope'
                 type='font-awesome-5'
-                color='black'
+                color='#092740'
                 size = {30}
                 />        
                 <TextInput
@@ -193,7 +194,7 @@ export default class Register extends React.Component {
                 <Icon style={styles.iconMargin}
                 name='calendar-day'
                 type='font-awesome-5'
-                color='black'
+                color='#092740'
                 size = {30}
                 />        
                 <TextInput
@@ -207,7 +208,7 @@ export default class Register extends React.Component {
                 <Icon style={styles.iconMargin}
                 name='globe-americas'
                 type='font-awesome-5'
-                color='black'
+                color='#092740'
                 size = {30}
                 />        
                 <TextInput
@@ -223,7 +224,17 @@ export default class Register extends React.Component {
               style={styles.button}
               onPress={this.onLogin.bind(this)}
             >
-              <Text style={styles.buttonText}> Regístrate </Text>
+              <View style={styles.view1}>
+                <Icon
+                  name='user-plus'
+                  type='font-awesome-5'
+                  color='white'
+                  size={30}
+                  style={styles.icono1}
+                />
+
+                <Text style={styles.buttonText}> Registrate </Text>
+              </View>
             </TouchableOpacity>
           </ScrollView>
         </SafeAreaView>
@@ -264,26 +275,36 @@ const styles = StyleSheet.create({
 
   button: {
     alignItems: "center",
-    backgroundColor: "powderblue",
-    width: 200,
-    height: 44,
-    padding: 10,
+    backgroundColor: "rgba(68, 133, 203 ,0.4)",
+    width: 250,
+    height: 50,
     borderWidth: 1,
     borderColor: "white",
-    borderRadius: 25,
-    marginBottom: 10,
-    marginTop:20,
+    borderRadius: 10,
+    marginTop: 50,
+    marginBottom: 50,
   },
+
   buttonText: {
-    fontSize: 20,
+    fontSize: 25,
     alignItems: "center",
     justifyContent: "center",
+    color:'white'
   },
+
+  view1: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    height: 65,
+  },
+
+  icono1: {
+    marginTop:5
+  },
+
   input: {
-    width: 200,
+    width: 250,
     fontSize: 20,
-    height: 44,
-    padding: 10,
     borderWidth: 1,
     borderColor: "white",
     backgroundColor: "#fff",
@@ -291,17 +312,14 @@ const styles = StyleSheet.create({
   },
 
   iconText: {
-    width:260,
-    flex: 1,
+    width: 320,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#fff',
     marginTop: '6%',
-    borderBottomEndRadius:20,
-    borderTopEndRadius:20,
-    borderTopLeftRadius: 20,
-    borderBottomLeftRadius: 20,
+    borderRadius: 20,
+    padding: 5
   },
   
   iconTitle: {
