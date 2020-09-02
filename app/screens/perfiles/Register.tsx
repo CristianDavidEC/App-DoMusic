@@ -114,7 +114,7 @@ export default class Register extends React.Component {
                 keyboardType="default"
                 onChangeText={(nombre) => this.setState({ nombre })}
                 placeholder="Nombre"
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
             /></View>
 
@@ -129,7 +129,7 @@ export default class Register extends React.Component {
                 value={this.state.apellido}
                 onChangeText={(apellido) => this.setState({ apellido })}
                 placeholder={"Apellido"}
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
             /></View>
             <View style={styles.iconText}>
@@ -144,7 +144,7 @@ export default class Register extends React.Component {
                 keyboardType="default"
                 onChangeText={(tipo) => this.setState({ tipo })}
                 placeholder="Tipo de Músico"
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
             /></View>
             <View style={styles.iconText}>
@@ -158,7 +158,7 @@ export default class Register extends React.Component {
                 value={this.state.generoMusica}
                 onChangeText={(generoMusica) => this.setState({ generoMusica })}
                 placeholder={"Género Musical"}
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
                 /></View>
             <View style={styles.iconText}>
@@ -173,7 +173,7 @@ export default class Register extends React.Component {
                 keyboardType="phone-pad"
                 onChangeText={(celular) => this.setState({ celular })}
                 placeholder="Número Celular"
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
                 /></View>
             <View style={styles.iconText}>
@@ -187,7 +187,7 @@ export default class Register extends React.Component {
                 value={this.state.correo}
                 onChangeText={(correo) => this.setState({ correo })}
                 placeholder={"Correo Electrónico"}
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
                 /></View>
             <View style={styles.iconText}>
@@ -201,7 +201,7 @@ export default class Register extends React.Component {
                 value={this.state.fechaNacimiento}
                 onChangeText={(fechaNacimiento) => this.setState({ fechaNacimiento })}
                 placeholder={"Fecha Nacimiento"}
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
             /></View>
             <View style={styles.iconText}>
@@ -216,7 +216,7 @@ export default class Register extends React.Component {
                 keyboardType="default"
                 onChangeText={(ciudad) => this.setState({ ciudad })}
                 placeholder="País"
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
             /></View>
 
@@ -233,7 +233,7 @@ export default class Register extends React.Component {
                   style={styles.icono1}
                 />
 
-                <Text style={styles.buttonText}> Registrate </Text>
+                <Text style={styles.buttonText}> Regístrate </Text>
               </View>
             </TouchableOpacity>
           </ScrollView>
@@ -305,9 +305,10 @@ const styles = StyleSheet.create({
   input: {
     width: 250,
     fontSize: 20,
-    borderWidth: 1,
-    borderColor: "white",
-    backgroundColor: "#fff",
+    //borderWidth: 1,
+    //borderColor: "white",
+    backgroundColor: "rgba(255, 255, 255, 0)",
+    //backgroundColor: "#fff",
     marginVertical: 10,
   },
 
@@ -316,7 +317,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
+    //backgroundColor: '#fff',
     marginTop: '6%',
     borderRadius: 20,
     padding: 5

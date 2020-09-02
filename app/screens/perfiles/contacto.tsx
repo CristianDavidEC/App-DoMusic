@@ -19,7 +19,7 @@ import { ServiceKeys } from "../../../keys";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import Constants from 'expo-constants';
 
-const bgImg = require("../../../assets/bg2.jpg");
+const bgImg = require("../../../assets/img2.jpg");
 
 export default class Contacto extends React.Component {
   constructor(props) {
@@ -100,7 +100,7 @@ export default class Contacto extends React.Component {
                 keyboardType="default"
                 onChangeText={(nombre) => this.setState({ nombre })}
                 placeholder="Nombre"
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
               /></View>
 
@@ -115,7 +115,7 @@ export default class Contacto extends React.Component {
                 value={this.state.correo}
                 onChangeText={(correo) => this.setState({ correo })}
                 placeholder={"Correo Electrónico"}
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
               /></View>
 
@@ -131,7 +131,7 @@ export default class Contacto extends React.Component {
                 keyboardType="phone-pad"
                 onChangeText={(celular) => this.setState({ celular })}
                 placeholder="Celular"
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
               /></View>
 
@@ -146,7 +146,7 @@ export default class Contacto extends React.Component {
                 value={this.state.asunto}
                 onChangeText={(asunto) => this.setState({ asunto })}
                 placeholder={"Asunto"}
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
               /></View>
 
@@ -162,7 +162,7 @@ export default class Contacto extends React.Component {
                 keyboardType="default"
                 onChangeText={(mensaje) => this.setState({ mensaje })}
                 placeholder="Mensaje"
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
               /></View>
 
@@ -262,9 +262,10 @@ const styles = StyleSheet.create({
   input: {
     width: 250,
     fontSize: 20,
-    borderWidth: 1,
+    //borderWidth: 1,
     borderColor: "white",
-    backgroundColor: "#fff",
+    backgroundColor: "rgba(255, 255, 255, 0)",
+    //backgroundColor: "#fff",
     marginVertical: 10,
   },
 
@@ -273,7 +274,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
+    //backgroundColor: '#fff',
     marginTop: '6%',
     borderRadius: 20,
     padding: 5

@@ -18,7 +18,7 @@ import md5 from "md5";
 import { ServiceKeys } from "../../../keys";
 import { Icon, Input } from 'react-native-elements';
 
-const bgImg = require("../../../assets/bg2.jpg");
+const bgImg = require("../../../assets/ini.jpg");
 
 export default class Login extends React.Component {
   constructor(props) {
@@ -95,7 +95,7 @@ export default class Login extends React.Component {
                 keyboardType="default"
                 onChangeText={(nombreUsuario) => this.setState({ nombreUsuario })}
                 placeholder="Nombre de Usuario"
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
               />
             </View>
@@ -114,7 +114,7 @@ export default class Login extends React.Component {
                 onChangeText={(contrasena) => this.setState({ contrasena })}
                 placeholder={"Contraseña"}
                 secureTextEntry={true}
-                placeholderTextColor="gray"
+                placeholderTextColor="black"
                 style={styles.input}
               />
             </View>
@@ -185,11 +185,12 @@ const styles = StyleSheet.create({
     color:'white'
   },
 
+  
   input: {
     width: 300,
     fontSize: 22,
     paddingLeft: 10,
-    backgroundColor: "#fff",
+    backgroundColor: "rgba(255, 255, 255, 0)",
     marginVertical: 10,
     display: "flex",
     borderRadius: 10
@@ -217,7 +218,8 @@ const styles = StyleSheet.create({
   view: {
     flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: "white",
+    backgroundColor: "rgba(255, 255, 255, 0.4)",
+    //backgroundColor: "white",
     marginTop: 25,
     borderRadius: 20,
     height: 65,
