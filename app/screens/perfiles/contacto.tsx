@@ -59,7 +59,13 @@ export default class Contacto extends React.Component {
       .then((data) => data.json())
       .then((data) => {
         AsyncStorage.setItem("session", JSON.stringify(data));
-        this.props.navigation.push("Main");
+        console.log(data)
+        if(!data.error){
+          this.props.navigation.push("Main");
+          Alert.alert("App Message", "Su mensaje se ha enviado con exito, pronto responderemos");
+        }else{
+          Alert.alert("App Message", "Informacion Invalida");
+        }
       })
       .catch((err) => {
         Alert.alert("App Message", "Invalid data.");

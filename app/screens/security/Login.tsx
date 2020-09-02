@@ -53,7 +53,6 @@ export default class Login extends React.Component {
           this.props.navigation.push("Publicaciones");
         }else{
           Alert.alert("App Message", "Usuario o contraseña inválida");
-          this.props.navigation.push("Login");
         }
       })
       .catch((err) => {

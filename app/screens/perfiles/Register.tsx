@@ -71,7 +71,13 @@ export default class Register extends React.Component {
       .then((data) => data.json())
       .then((data) => {
         AsyncStorage.setItem("session", JSON.stringify(data));
-        this.props.navigation.push("Login");
+        if(!data.error){
+          this.props.navigation.push("Login");
+          Alert.alert("App Message", "Te has registrado con éxito en DoMusic");
+
+        }else{
+          Alert.alert("App Message", "Informacion Invalida");
+        }
       })
       .catch((err) => {
         Alert.alert("App Message", "Invalid data.");
