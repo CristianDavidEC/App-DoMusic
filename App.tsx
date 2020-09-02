@@ -55,7 +55,7 @@ export default function App() {
         name="Login"
         component={LoginScreen}
         options={{
-          title: 'Inicio de Sesion',
+          title: 'Inicio de sesión',
           headerStyle: {
             backgroundColor: '#092740',
           },
@@ -66,7 +66,7 @@ export default function App() {
         name="Register"
         component={RegisterScreen}
         options={{
-          title: 'Registrate',
+          title: 'Regístrate',
           headerStyle: {
             backgroundColor: '#092740',
           },
@@ -77,7 +77,7 @@ export default function App() {
         name="Contacto"
         component={ContactoScreen}
         options={{
-          title: 'Contactanos',
+          title: 'Contáctanos',
           headerStyle: {
             backgroundColor: '#092740',
           },
