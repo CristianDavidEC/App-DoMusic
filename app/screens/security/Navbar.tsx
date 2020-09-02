@@ -28,7 +28,7 @@ export default class SessionNavbar extends React.Component {
   }
 
   signOut = () => {
-    Alert.alert("Cerrar Sessión", "Seguro que deseas salir?", [
+    Alert.alert("Cerrar sesión", "¿Estás seguro de salir?", [
       {
         text: "Si",
         onPress: () => {

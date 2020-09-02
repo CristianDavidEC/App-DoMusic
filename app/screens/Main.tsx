@@ -21,16 +21,16 @@ export default class Main extends React.Component {
             activeIndex: 0,
             carouselItems: [
                 {
-                    title: "Bienvenido, acompañanos con tu armonia",
+                    title: "Bienvenido, acompáñanos con tu armonía",
                     imagen: "https://cdn.pixabay.com/photo/2015/05/15/14/50/concert-768722_960_720.jpg"
 
                 },
                 {
-                    title: "Disfruta tu pasión por la música En cualquier momento y lugar",
+                    title: "Disfruta tu pasión por la música en cualquier momento y lugar",
                     imagen: "https://cdn.pixabay.com/photo/2016/11/23/00/39/hands-1851500_960_720.jpg"
                 },
                 {
-                    title: "Ábrete camino con tu musica, Demuestra tu talento",
+                    title: "Ábrete camino con tu musica, demuestra tu talento",
                     imagen: "https://cdn.pixabay.com/photo/2014/11/26/15/20/saxophone-546303_960_720.jpg"
 
                 },
@@ -39,7 +39,7 @@ export default class Main extends React.Component {
                     imagen: "https://cdn.pixabay.com/photo/2014/06/21/20/09/violin-374096_960_720.jpg"
                 },
                 {
-                    title: "La musica eres Tu, Sigue tu Arminia",
+                    title: "La música eres tú, Sigue tu armonía",
                     imagen: "https://cdn.pixabay.com/photo/2016/11/19/21/05/bass-guitar-1841186_960_720.jpg"
                 },
             ]

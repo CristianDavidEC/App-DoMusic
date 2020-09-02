@@ -62,13 +62,13 @@ export default class Contacto extends React.Component {
         console.log(data)
         if(!data.error){
           this.props.navigation.push("Main");
-          Alert.alert("App Message", "Su mensaje se ha enviado con exito, pronto responderemos");
+          Alert.alert("App Message", "Tu mensaje se ha enviado con éxito, pronto daremos respuesta");
         }else{
-          Alert.alert("App Message", "Informacion Invalida");
+          Alert.alert("App Message", "Información Inválida");
         }
       })
       .catch((err) => {
-        Alert.alert("App Message", "Invalid data.");
+        Alert.alert("App Message", "Información Inválida.");
       });
     //Alert.alert("Credentials", `nombreUsuario: ${u} - contrasena: ${p}`);
   }
