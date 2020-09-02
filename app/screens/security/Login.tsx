@@ -49,10 +49,15 @@ export default class Login extends React.Component {
       .then((data) => data.json())
       .then((data) => {
         AsyncStorage.setItem("session", JSON.stringify(data));
-        this.props.navigation.push("Publicaciones");
+        if(!data.error){
+          this.props.navigation.push("Publicaciones");
+        }else{
+          Alert.alert("App Message", "Usuario o contraseña inválida");
+          this.props.navigation.push("Login");
+        }
       })
       .catch((err) => {
-        Alert.alert("App Message", "Invalid data.");
+        Alert.alert("App Message", "Usuario o contraseña inválida");
       });
   }
 

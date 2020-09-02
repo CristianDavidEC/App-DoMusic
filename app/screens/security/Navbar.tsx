@@ -3,7 +3,8 @@ import React from "react";
 import { StyleSheet, Text, Alert, Button, AsyncStorage, SafeAreaView, View, TouchableOpacity } from "react-native";
 import { animateScroll as scroll } from "react-scroll";
 
-import { Icon, Input } from 'react-native-elements';
+import { Icon, Input, Tooltip } from 'react-native-elements';
+import { TouchableHighlight } from "react-native-gesture-handler";
 
 export default class SessionNavbar extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ export default class SessionNavbar extends React.Component {
             isLoggedIn: false,
             nombre: "",
           });
+          this.props.navigation.navigate("Main")
         },
       },
       {
@@ -68,56 +70,21 @@ export default class SessionNavbar extends React.Component {
 
         <View style={styles.container}>
 
-          {/* <View >
-            <Icon
-              name='sign-in-alt'
-              type='font-awesome-5'
-              color='white'
-              size={30}
-            />
-            <Button
-              color='#092740'
-              title="Iniciar Sesion"
-              onPress={() => this.props.navigation.navigate("Login")}
-            />
-          </View>
-
-          <Icon
-            name='sign-in-alt'
-            type='font-awesome-5'
-            color='white'
-            size={30}
-          />
-          <Button
-            color='#092740'
-            title="Contacto"
-            onPress={() => this.props.navigation.navigate("Contacto")}
-          />
-
-          <Icon
-            name='sign-in-alt'
-            type='font-awesome-5'
-            color='white'
-            size={30}
-          />
-          <Button
-            color='#092740'
-            title="Registrarse"
-            onPress={() => this.props.navigation.navigate("Register")}
-          /> */}
-
           <TouchableOpacity
             style={styles.button}
             onPress={() => this.props.navigation.navigate("Login")}
           >
             <View style={styles.view1}>
+
               <Icon
                 name='sign-in-alt'
                 type='font-awesome-5'
                 color='white'
-                size={30}
-                style={styles.icono1}
-              />
+                size={20}
+                style={styles.icono1} />
+
+              <Text style={styles.txt}>Ingresar</Text>
+
             </View>
           </TouchableOpacity>
 
@@ -130,9 +97,11 @@ export default class SessionNavbar extends React.Component {
                 name='envelope-open-text'
                 type='font-awesome-5'
                 color='white'
-                size={30}
+                size={20}
                 style={styles.icono1}
               />
+
+              <Text style={styles.txt}>Contactar</Text>
             </View>
           </TouchableOpacity>
 
@@ -145,9 +114,11 @@ export default class SessionNavbar extends React.Component {
                 name='user-plus'
                 type='font-awesome-5'
                 color='white'
-                size={30}
+                size={20}
                 style={styles.icono1}
               />
+
+              <Text style={styles.txt}>Registrar</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -171,17 +142,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#092740",
     width: '100%',
     height: 50,
-    padding:5
+    padding: 5
   },
 
   view1: {
     flexDirection: 'row',
     justifyContent: 'center',
-
+    marginTop: 6
   },
 
   icono1: {
-    marginTop:5
+    marginTop:2,
+    marginRight: 5,
   },
 
   cont: {
@@ -209,7 +181,13 @@ const styles = StyleSheet.create({
     width: '30%',
     height: 40,
     borderRadius: 10,
-    marginLeft:5,
-    marginRight:5,
+    marginLeft: 5,
+    marginRight: 5,
   },
+
+  txt:{
+    fontSize: 15,
+    color:'white',
+    fontWeight: "bold"
+  }
 });
