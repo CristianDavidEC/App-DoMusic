@@ -52,8 +52,8 @@ export default class Main extends React.Component {
                 <Image
                     style={styles.imagen}
                     source={{
-                        width: 360,
-                        height: 480,
+                        width: "100%",
+                        height: "75%",
                         uri: item.imagen,
                     }}
                 />
@@ -85,12 +85,11 @@ export default class Main extends React.Component {
 
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', marginTop: 40 }}>
                     <Carousel
-                        layout={'stack'}
-                        layoutCardOffset={15}
+                        layout={'default'}
                         ref={ref => this.carousel = ref}
                         data={this.state.carouselItems}
                         sliderWidth={280}
-                        itemWidth={380}
+                        itemWidth={370}
                         renderItem={this._renderItem}
                         onSnapToItem={index => this.setState({ activeIndex: index })} />
                 </View>
@@ -105,16 +104,18 @@ const styles = StyleSheet.create({
     searchSection: {
         flexDirection: 'row',
         justifyContent: 'center',
-        textAlign: "center" 
+        textAlign: "center",
+
       },
 
     head: {
         alignItems: "center",
-        marginLeft: 20,
+        alignSelf: "center",
         backgroundColor: 'white',
-        height: '94%',
+        height: '96%',
         borderRadius: 23,
-
+        width: '100%',
+        marginLeft: '6%'
     },
 
     imagen: {

@@ -52,7 +52,23 @@ export default class Publicaciones extends React.Component {
         if (this.state.loading) {
             return (
                 <View style={styles.dataViewLoading}>
-                    <Text>Cargando Publicaciones... Espera un momento.</Text>
+                    <Icon
+                        name='compact-disc'
+                        type='font-awesome-5'
+                        color='#092740'
+                        size={50}
+                    />
+                    <Text style={styles.carga}>
+                        Cargando Publicaciones... Espera un momento.
+                    </Text>
+                    <Image
+                        style={styles.gif}
+                        source={{
+                            width: "100%",
+                            height: "50%",
+                            uri: 'https://thumbs.gfycat.com/AcclaimedHeartfeltGoat-size_restricted.gif',
+                        }}
+                    />
                 </View>
             );
         } else {
@@ -66,7 +82,7 @@ export default class Publicaciones extends React.Component {
                         renderItem={({ item }) => (
 
                             <View style={styles.publicacionViewContent}>
-                               
+
                                 <TouchableHighlight
                                     onPress={() => {
                                         Alert.alert(`Image De la Publicacion: ${item.idPublicacion}`);
@@ -75,7 +91,7 @@ export default class Publicaciones extends React.Component {
                                     <Image
                                         style={styles.img}
                                         source={{
-                                            width: 382,
+                                            width: '100%',
                                             height: 420,
                                             uri: `${ServiceKeys.URL}/files/2/${item.idPublicacion}`,
                                         }
@@ -146,18 +162,18 @@ const styles = StyleSheet.create({
         borderColor: "#CCD1D1",
         borderWidth: 1,
         borderRadius: 10,
-        margin: 5,
-        width: '98%',
+        margin: '1%',
+        width: '96%',
         backgroundColor: '#e7ecf1',
-        marginBottom: 15
+        marginBottom: '4%',
     },
 
     publiTitulo: {
         fontSize: 22,
         color: "black",
         fontWeight: "bold",
-        marginTop: 3,
-        marginBottom: 6
+        marginTop: '1%',
+        marginBottom: '2%'
     },
 
     publicacionesView: {
@@ -170,7 +186,8 @@ const styles = StyleSheet.create({
     dataViewLoading: {
         alignItems: "center",
         alignContent: "center",
-        flex: 1,
+        marginTop: '30%',
+        padding: 20
     },
 
     flatList: {
@@ -188,21 +205,21 @@ const styles = StyleSheet.create({
     titulo: {
         fontSize: 25,
         fontWeight: "bold",
-        marginBottom: 5
+        marginBottom: '2%'
     },
 
     texto: {
-        marginLeft: 10,
-        marginRight: 10,
+        marginLeft: '2%',
+        marginRight: '2%',
         borderBottomWidth: 1,
         borderBottomColor: "#CCD1D1"
-        
+
     },
 
     button: {
         alignItems: "center",
-        backgroundColor: "rgba(78, 131, 184 ,0.7)",
-        width: 70,
+        backgroundColor: "rgba(rgba(33, 45, 97 ,0.7))",
+        width: "20%",
         height: 40,
         borderWidth: 1,
         borderColor: "white",
@@ -232,19 +249,30 @@ const styles = StyleSheet.create({
 
     botones: {
         flexDirection: 'row',
-        justifyContent:"space-between"
+        justifyContent: "space-between"
     },
 
-    conten:{
+    conten: {
         color: '#3C4752',
         fontSize: 18,
         marginBottom: 5
     },
 
-    fecha:{
+    fecha: {
         color: '#3C4752',
-        fontSize:10,
+        fontSize: 10,
         marginBottom: 5
-    }
+    },
 
+    carga: {
+        textAlign: "center",
+        fontSize: 22,
+        color: "#092740",
+        fontWeight: "bold",
+        marginBottom: '10%'
+    },
+
+    gif: {
+        borderRadius: 20,
+    }
 });
