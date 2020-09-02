@@ -66,6 +66,7 @@ export default class Publicaciones extends React.Component {
                         renderItem={({ item }) => (
 
                             <View style={styles.publicacionViewContent}>
+                               
                                 <TouchableHighlight
                                     onPress={() => {
                                         Alert.alert(`Image De la Publicacion: ${item.idPublicacion}`);
