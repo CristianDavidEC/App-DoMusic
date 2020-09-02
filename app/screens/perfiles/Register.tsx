@@ -19,7 +19,7 @@ import { ServiceKeys } from "../../../keys";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import Constants from 'expo-constants';
 
-const bgImg = require("../../../assets/bg2.jpg");
+const bgImg = require("../../../assets/guit.jpg");
 
 export default class Register extends React.Component {
   constructor(props) {
@@ -142,7 +142,7 @@ export default class Register extends React.Component {
                 value={this.state.tipo}
                 keyboardType="default"
                 onChangeText={(tipo) => this.setState({ tipo })}
-                placeholder="Tipo de Musico"
+                placeholder="Tipo de Músico"
                 placeholderTextColor="gray"
                 style={styles.input}
             /></View>
@@ -156,7 +156,7 @@ export default class Register extends React.Component {
                 <TextInput
                 value={this.state.generoMusica}
                 onChangeText={(generoMusica) => this.setState({ generoMusica })}
-                placeholder={"Genero Musical"}
+                placeholder={"Género Musical"}
                 placeholderTextColor="gray"
                 style={styles.input}
                 /></View>
@@ -171,7 +171,7 @@ export default class Register extends React.Component {
                 value={this.state.celular}
                 keyboardType="phone-pad"
                 onChangeText={(celular) => this.setState({ celular })}
-                placeholder="Numero Celular"
+                placeholder="Número Celular"
                 placeholderTextColor="gray"
                 style={styles.input}
                 /></View>
@@ -185,7 +185,7 @@ export default class Register extends React.Component {
                 <TextInput
                 value={this.state.correo}
                 onChangeText={(correo) => this.setState({ correo })}
-                placeholder={"Correo Electronico"}
+                placeholder={"Correo Electrónico"}
                 placeholderTextColor="gray"
                 style={styles.input}
                 /></View>
@@ -214,7 +214,7 @@ export default class Register extends React.Component {
                 value={this.state.ciudad}
                 keyboardType="default"
                 onChangeText={(ciudad) => this.setState({ ciudad })}
-                placeholder="Pais"
+                placeholder="País"
                 placeholderTextColor="gray"
                 style={styles.input}
             /></View>
